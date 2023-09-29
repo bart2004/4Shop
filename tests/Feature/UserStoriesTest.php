@@ -32,7 +32,7 @@ class UserStoriesTest extends TestCase
     public function test_REQ4_DiscountedPriceInHTML()
     {
         $product = \App\Models\Product::where('discount', '>', '0')->first();
-        $origPrice = $product->getOriginal('price');
+        $origPrice = $product->getRawOriginal('price');
         $discount = $origPrice * ($product->discount / 100); //Korting in euro's
         $finalPrice = $origPrice - $discount;               //Haal korting af van prijs
         $finalPrice = number_format($finalPrice, 2);               //Zorg altijd voor 2 decimalen
@@ -62,7 +62,7 @@ class UserStoriesTest extends TestCase
     public function test_REQ9_ProductEditHasDiscount()
     {
         $product = \App\Models\Product::where('discount', '>', '0')->first();
-        $origPrice = $product->getOriginal('price');
+        $origPrice = $product->getRawOriginal('price');
         $user = \App\Models\User::first();
 
         $response = $this->actingAs($user)->get('/admin/products/' . $product->id . '/edit');
