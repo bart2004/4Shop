@@ -19,7 +19,7 @@ class UserStoriesTest extends TestCase
     public function test_REQ4_DiscountedPriceOnModel()
     {
         $product = \App\Models\Product::where('discount', '>', '0')->first();
-        $origPrice = $product->getOriginal('price');
+        $origPrice = $product->getRawOriginal('price');
         $discPrice = $product->price;
 
         $discount = $origPrice * ($product->discount / 100); //Korting in euro's
