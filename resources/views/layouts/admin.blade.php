@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Winkel - Scouting Raamsdonksveer</title>
+    <title>4Shop - Bart Strik</title>
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -18,7 +18,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-success d-flex justify-content-between">
         <div class="container">
-            <a href="{{ route('admin.home') }}" class="navbar-brand">Winkel</a>
+            <a href="{{ route('admin.home') }}" class="navbar-brand">4Shop</a>
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('admin.orders.index') }}">Bestellingen</a>
