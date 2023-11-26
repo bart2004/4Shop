@@ -22,6 +22,8 @@ class CreateProductsTable extends Migration
             $table->boolean('leiding');
             $table->boolean('active')->default(true);
             $table->timestamps();
+            $table->decimal('discount', $precision = 4, $scale = 1)->default(0);
+            // longer version is easier to understand $table->decimal('discount', $precision = 4, $scale = 1)->default(0);
         });
     }
 
