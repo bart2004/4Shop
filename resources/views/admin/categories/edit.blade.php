@@ -43,9 +43,9 @@
 <div class="my-5">
 	<h4>Products in {{ $category->name }}</h4>
 	<ul>
-		@foreach(\App\Models\Product::where('category_id', $category->id)->get() as $product)
-			<li>{{ $product->name }}</li>
-		@endforeach
+		@foreach($category->products as $product)
+		<li>{{ $product->title }}</li>
+        @endforeach
 	</ul>
 </div>
 	
