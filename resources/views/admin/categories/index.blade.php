@@ -6,7 +6,7 @@
 	<div class="d-flex justify-content-between align-items-center my-4">
 		<h4>Categorieën</h4>
 		<div>
-			<a href="{{ route('admin.categories.create') }}">Nieuw product toevoegen</a>
+			<a href="{{ route('admin.categories.create') }}">Nieuwe categorie toevoegen</a>
 		</div>
 	</div>
 

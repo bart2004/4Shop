@@ -56,6 +56,9 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::resource('orders', AdminOrderController::class, ['as' => 'admin'])->only(['index', 'show', 'destroy']);
 
     Route::resource('categories', \App\Http\Controllers\Admin\CategoryController::class, ['as' => 'admin'])->except('show');
+    // Route::get('category/create', [\App\Http\Controllers\Admin\CategoryController::class, 'create'])->name('admin.category.create');
+    Route::post('category/store', [\App\Http\Controllers\Admin\CategoryController::class, 'store'])->name('admin.category.store');
+
 
 });
 

@@ -27,7 +27,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.categories.create');
     }
 
     /**
@@ -38,8 +38,17 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate(request(), [
+
+            'category' => 'required'        
+        ]);
+    
+        $category = new Category();
+        $category->name = $request->category;
+        $category->save();
+        return redirect()->route('admin.categories.index');
     }
+
 
     /**
      * Display the specified resource.
@@ -73,7 +82,15 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+            
+            $this->validate(request(), [
+    
+                'category' => 'required'        
+            ]);
+        
+            $category->name = $request->category;
+            $category->save();
+            return redirect()->route('admin.categories.index');
     }
 
     /**
