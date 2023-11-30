@@ -13,6 +13,16 @@
 			<input type="text" id="title" name="title" class="form-control" value="{{ old('title') }}">
 		</div>
 		<div class="form-group">
+			<label for="category_id">Categorie</label>
+			<select name="category_id" id="category_id" class="form-control">
+					@foreach($categories as $category)
+						<option value="{{ $category->id }}">
+							{{ $category->name }}
+						</option>
+					@endforeach
+				</select>
+		</div>
+		<div class="form-group">
 			<label for="price">Prijs</label>
 			<div class="input-group mb-2">
 		        <div class="input-group-prepend">

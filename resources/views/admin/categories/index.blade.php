@@ -1,4 +1,4 @@
-{{ $categories }} 
+<!-- {{ $categories }}  -->
 @extends('layouts.admin')
 
 @section('content')
