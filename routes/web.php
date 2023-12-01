@@ -54,11 +54,12 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::post('orders/mail', [AdminOrderController::class, 'mail_send'])->name('admin.orders.mail.send');
     Route::get('orders/packing', [AdminOrderController::class, 'packing'])->name('admin.orders.packing');
     Route::resource('orders', AdminOrderController::class, ['as' => 'admin'])->only(['index', 'show', 'destroy']);
+    Route::get('orders/{order}/toggleDelivered', [AdminOrderController::class, 'toggleDelivered'])->name('admin.orders.toggle');
 
     Route::resource('categories', \App\Http\Controllers\Admin\CategoryController::class, ['as' => 'admin'])->except('show');
     // Route::get('category/create', [\App\Http\Controllers\Admin\CategoryController::class, 'create'])->name('admin.category.create');
     Route::post('category/store', [\App\Http\Controllers\Admin\CategoryController::class, 'store'])->name('admin.category.store');
-
+    
 
 });
 

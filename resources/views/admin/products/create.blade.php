@@ -28,9 +28,17 @@
 		        <div class="input-group-prepend">
 		        	<div class="input-group-text">&euro;</div>
 		        </div>
-				<input type="number" min="0" id="price" name="price" class="form-control" value="{{ old('price') }}">
+				<input type="number" min="0" id="price" name="price" class="form-control">
 			</div>
 		</div>
+		<div class="form-group">
+			<label for="discount">Korting</label>
+			<div class="input-group mb-2">
+		        <div class="input-group-prepend">
+		        	<div class="input-group-text">%</div>
+		        </div>
+				<input type="double" min="0" max="100" id="discount" name="discount" class="form-control">
+			</div>
 		<div class="form-group my-4">
 			<div class="form-check form-check-inline">
 				<input class="form-check-input" type="radio" name="active" id="active1" value="1">

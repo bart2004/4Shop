@@ -13,6 +13,8 @@
 		<tr>
 			<th>Titel</th>
 			<th>Prijs</th>
+			<th>Originele prijs</th>
+			<th>Korting</th>
 			<th>Categorie</th>
 			<th colspan="4">&nbsp;</th>
 		</tr>
@@ -20,6 +22,8 @@
 			<tr>
 				<td>{{ $product->title }}</td>
 				<td>&euro;{{ $product->price }}</td>
+				<td>&euro;{{ $product->original_price }}</td>
+				<td> {{$product->discount}}%</td>
 				<td>{{ $product->category->name }}</td>
 				<td>
 					@if($product->active)

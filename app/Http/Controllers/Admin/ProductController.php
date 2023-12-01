@@ -32,17 +32,19 @@ class ProductController extends Controller
         $this->validate(request(), [
             'title' => 'required',
             'price' => 'required|numeric',
+            'discount' => 'nullable|numeric',
             'active' => 'required|boolean',
             'leiding' => 'required|boolean',
             'image' => 'nullable|image',
             'description' => 'nullable',
-            'category_id' => 'required|exists:categories,id'
+            'category_id' => 'required|exists:categories,id'//must exist in the categories table as an id
         
         ]);
 
         $product = new Product();
         $product->title = $request->title; 
         $product->price = $request->price;
+        $product->discount = $request->discount ?? 0;
         $product->active = $request->active;
         $product->leiding = $request->leiding;
         $product->description = $request->description;
@@ -105,8 +107,9 @@ class ProductController extends Controller
 
     public function edit(Product $product)
     {
+        $categories = Category::all();
         return view('admin.products.edit')
-                ->with(compact('product'));
+            ->with(compact('categories', 'product'));
     }
 
     public function update(Request $request, Product $product)
@@ -114,17 +117,21 @@ class ProductController extends Controller
         $this->validate(request(), [
             'title' => 'required',
             'price' => 'required|numeric',
+            'discount' => 'nullable|numeric',
             'active' => 'required|boolean',
             'leiding' => 'required|boolean',
             'image' => 'nullable|image',
-            'description' => 'nullable'
+            'description' => 'nullable',
+            'category_id' => 'required|exists:categories,id' //must exist in the categories table as an id
         ]);
 
         $product->title = $request->title; 
         $product->price = $request->price;
+        $product->discount = $request->discount ?? 0;
         $product->active = $request->active;
         $product->leiding = $request->leiding;
         $product->description = $request->description;
+        $product->category_id = $request->category_id;
         if($request->hasFile('image'))
         {
             $product->image = $request->image->store('img');
